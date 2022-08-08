@@ -1,1 +1,146 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: sans-serif;
+    background-image: url(https://i.imgur.com/9cj7DNp.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.nav {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    background-color: mediumblue;
+}
+
+.ap-logo {
+    height: 90px;
+    width: auto;
+    padding-left: 10px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 0px 30px 0px 0px;
+}
+nav a:hover {
+    color: lightskyblue;
+}
+
+.banner {
+    width: 100%;
+}
+
+.photo {
+    width: 400px;
+    height: auto;
+}
+
+.about {
+    max-width: 500px;
+}
+.about h1 {
+    margin-bottom: 10px;
+}
+.about h5 {
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: flex;
+    min-width: 300px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tag-edu {
+    padding: 25px;
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.fix {
+    flex-direction: column;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.space {
+    margin-top: 100px;
+}
+
+.edu-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.exp {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.progress {
+    width: 700px;
+    margin-bottom: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.progress p {
+    width: 50px;
+}
+
+.skill {
+    margin-bottom: 10px;
+}
+
+
+
+
+h2 {
+    margin: 10px 0px 10px;
+}
+
+p {
+    margin: 0px 20px;
+    padding-bottom: 10px;
+}
+
+
+ul {
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+}
+li a {
+    text-decoration: none;
+}
+
+footer {
+    padding: 10px 0px 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: medium;
+    text-align: center;
+    color: orangered;
+    background-color: rgba(1, 0, 85, 0.952);
+}
+footer p {
+    margin: 0px;
+}
