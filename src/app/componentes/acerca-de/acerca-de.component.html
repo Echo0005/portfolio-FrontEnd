@@ -1,15 +1,15 @@
 <!-- Banner: -->
-<img class="banner" src="https://i.imgur.com/8y2Hwm9.jpg" alt="">
+<img class="banner" [src]="miPorfolio.about.banner" alt="">
 
 <!-- About: -->
 <div class="tag">
-    <img class="photo" src="https://i.imgur.com/TRbXNzO.jpg" alt="">
+    <img class="photo" [src]="miPorfolio.about.photo" alt="">
 
     <div class="about">
-        <h1>Marcelo Nicolás Echenique</h1>
-        <h5>Full Stack Developer Jr</h5>
+        <h1>{{miPorfolio.about.name}}</h1>
+        <h5>{{miPorfolio.about.title}}</h5>
         <p>
-            Descubrí el mundo de la Programación gracias a Argentina Programa. Tras esto estoy enfocado en realizar proyectos a modo de reforzar mis habilidades y conocimientos respecto a sus áreas.
+            {{miPorfolio.about.about}}
         </p>
     </div>          
 </div>
