@@ -1,17 +1,32 @@
 <!-- Educacion: -->
 <div class="tag fix space">
+
     <h2>Educacion</h2>
-    <div *ngFor="let educ of educacionList.study" class="border tag-edu">
-        <img class="edu-logo" [src]="educ.img" alt="">
-        <h3>{{educ.institute}}</h3>
-        <h4>{{educ.title}}</h4>
-        <h5>{{educ.fInicio}} - {{educ.fFin}}</h5>
+    <div *ngFor="let educ of educacionList" class="border margin">
+        <div class="tag-edu">
+            <div>
+                <img class="edu-logo" [src]="educ.img" alt="">
+            </div>
+            <div>
+                <h3>{{educ.institucion}}</h3>
+                <h4>{{educ.titulo}}</h4>
+                <h5>{{educ.finicio}} - {{educ.ffin}}</h5>
+            </div>
+        </div>
     </div>
+
     <h3>Cursos</h3>
-    <div *ngFor="let curso of educacionList.cursos" class="border tag-edu">
-        <img class="edu-logo" [src]="curso.img" alt="">
-        <h3>{{curso.what}}</h3>
-        <h4>{{curso.where}}</h4>
-        <h5>{{curso.fInicio}} - {{curso.fFin}}</h5>
+    <div *ngFor="let curso of cursosList" class="margin">
+        <div class="border tag-edu">
+            <div>
+                <img class="edu-logo" [src]="curso.img" alt="">
+            </div>
+            <div>
+                <h3>{{curso.what}}</h3>
+                <h4>{{curso.where}}</h4>
+                <h5>{{curso.inicio}} - {{curso.fin}}</h5>
+            </div>
+        </div>  
     </div>
+
 </div>

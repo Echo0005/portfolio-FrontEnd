@@ -5,7 +5,7 @@
 
 .tag-exp {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     padding: 25px;
     margin-bottom: 25px;

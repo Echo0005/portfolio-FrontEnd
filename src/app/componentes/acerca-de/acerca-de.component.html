@@ -1,15 +1,19 @@
 <!-- Banner: -->
-<img class="banner" [src]="miPorfolio.about.banner" alt="">
+    <img class="banner" [src]="miPorfolio[0].banner" alt="">
 
 <!-- About: -->
 <div class="tag">
-    <img class="photo" [src]="miPorfolio.about.photo" alt="">
+
+        <img class="photo" [src]="miPorfolio[0].photo" alt="">
+
 
     <div class="about">
-        <h1>{{miPorfolio.about.name}}</h1>
-        <h5>{{miPorfolio.about.title}}</h5>
+
+        <h1>{{miPorfolio[0].nombre}} {{miPorfolio[0].apellido}}</h1>
+        <h5>{{miPorfolio[0].title}}</h5>
         <p>
-            {{miPorfolio.about.about}}
+            {{miPorfolio[0].about}}
         </p>
+
     </div>          
 </div>

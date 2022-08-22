@@ -11,30 +11,61 @@
         </div>
     </div>
 
-    <div *ngFor="let exp of expList" class="border tag-exp">
+    <!--
+    <div class="border tag-exp">
         <div>
-            <img class="img-empresa" [src]="exp.img" alt="">
+            <img class="img-empresa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png" alt="">
         </div>        
         <div>
             <h5>
-                {{exp.puesto}}
+                Puesto
             </h5>
             <div class="box">
                 <p>
-                    {{exp.empresa}}. {{exp.tipoEmpleo}}.                    
+                    Empresa. Tipo-empleo.                    
                 </p>
                 <div>
                     <p class="text-center">
-                        {{exp.descrip}}
+                        descripcion
                     </p>
                 </div>
                 <p>
-                    {{exp.actual}}
+                    esTrabAct
                 </p>
                 <p>
-                    {{exp.fInicio}} - {{exp.fFin}}
+                    finicio - ffin
                 </p>
             </div>            
+        </div>
+    </div>
+    -->
+
+    <div *ngFor="let exp of expList">
+        <div class="border tag-exp">
+            <div>
+                <img class="img-empresa" [src]="exp.img" alt="">
+            </div>        
+            <div class="box">
+                
+                    <h4>
+                        {{exp.puesto}}
+                    </h4>
+                    <p>
+                        {{exp.empresa}}. {{exp.tipo}}.                    
+                    </p>
+                    <div>
+                        <p class="text-center">
+                            {{exp.descripcion}}
+                        </p>
+                    </div>
+                    <p>
+                        {{exp.esTrabAct}}
+                    </p>
+                    <p>
+                        {{exp.finicio}} - {{exp.ffin}}
+                    </p>
+         
+            </div>
         </div>
     </div>
 </div>

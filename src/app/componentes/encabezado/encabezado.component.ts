@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contacto } from 'src/app/model/Contacto';
+import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoComponent implements OnInit {
 
-  constructor() { }
+  contactoDatos: Contacto [] = [];
+
+  constructor( private service:PorfolioService ) { }
 
   ngOnInit(): void {
+
+    this.service.getContacto().subscribe( respuesta => { this.contactoDatos = respuesta; } );
+
   }
 }

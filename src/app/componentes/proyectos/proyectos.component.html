@@ -2,7 +2,6 @@
     <h2>Proyectos</h2>
     <div>
         <ul>
-            <li type="none">Este Porfolio App</li>
             <li *ngFor="let proyecto of proyectosList" type="none">
                 <a [href]="proyecto.link" target="_blank">{{proyecto.name}}</a>
             </li>
