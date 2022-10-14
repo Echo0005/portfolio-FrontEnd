@@ -1,0 +1,365 @@
+<!-- Educacion: -->
+<div class="tag fix space">
+    <!-- Modal Educacion Add -->
+    <div class="modal fade" id="AddModalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Añadir Experiencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onCrearEdu()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Link"
+                        [(ngModel)]="imagenEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Institucion</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="institucionEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Titulo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="tituloEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaEdu"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Educacion Update -->
+    <div class="modal fade" id="UpdateModalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">Añadir Educacion</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onUpdateEdu()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="imagenEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Institucion</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="institucionEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Titulo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="tituloEdu"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaEdu"
+                        required=""
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Curso Add -->
+    <div class="modal fade" id="AddModalCurso" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel3">Añadir Experiencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onCrearCur()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Link"
+                        [(ngModel)]="imgCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Titulo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="queCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Donde</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="dondeCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Inicio</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaIniCur"
+                        required
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Finalizacion</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaFinCur"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Curso Update -->
+    <div class="modal fade" id="UpdateModalCurso" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel4">Editar Curso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onUpdateCur()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="imgCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Titulo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="queCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Donde</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="dondeCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaIniCur"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaFinCur"
+                        required=""
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <div>
+        <div>
+            <h2>
+                Educacion
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalEducacion">
+                    <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+                </button>
+            </h2>
+        </div>
+        <div *ngFor="let educ of educacionList" class="border margin">
+            <div class="tag-edu">
+                <div>
+                    <img class="edu-logo" [src]="educ.imagenEdu" alt="">
+                </div>
+                <div>
+                    <h3>{{educ.institucionEdu}}</h3>
+                    <h4>{{educ.tituloEdu}}</h4>
+                    <h5>{{educ.fechaEdu}}</h5>
+                </div>
+            </div>
+            <div>
+                <button class="">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteEdu(educ.idEdu)"></i>
+                </button>
+                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalEducacion" (click)="updateIdEdu(educ.idEdu)">
+                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div>
+        <div>
+            <h3>
+                Cursos
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalCurso">
+                    <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+                </button>
+            </h3>
+        </div>
+    
+        <div *ngFor="let curso of cursosList" class="margin">
+            <div class="border tag-edu">
+                <div>
+                    <img class="edu-logo" [src]="curso.imgCur" alt="">
+                </div>
+                <div>
+                    <h3>{{curso.queCur}}</h3>
+                    <h4>{{curso.dondeCur}}</h4>
+                    <h5>{{curso.fechaIniCur}} - {{curso.fechaFinCur}}</h5>
+                </div>
+                <div>
+                    <button class="">
+                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteCur(curso.idCur)"></i>
+                    </button>
+                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalCurso" (click)="updateIdCur(curso.idCur)">
+                        <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                    </button>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+</div>

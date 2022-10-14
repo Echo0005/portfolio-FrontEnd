@@ -43,26 +43,21 @@
     <div *ngFor="let exp of expList">
         <div class="border tag-exp">
             <div>
-                <img class="img-empresa" [src]="exp.img" alt="">
+                <img class="img-empresa" [src]="exp.logoLinkExp" alt="">
             </div>        
             <div class="box">
                 
                     <h4>
-                        {{exp.puesto}}
+                        {{exp.puestoExp}}
                     </h4>
                     <p>
-                        {{exp.empresa}}. {{exp.tipo}}.                    
-                    </p>
-                    <div>
-                        <p class="text-center">
-                            {{exp.descripcion}}
-                        </p>
-                    </div>
-                    <p>
-                        {{exp.esTrabAct}}
+                        {{exp.empresaExp}}. {{exp.tipoEmpleoExp}}.                    
                     </p>
                     <p>
-                        {{exp.finicio}} - {{exp.ffin}}
+                        {{exp.esTrabajoActualExp}}
+                    </p>
+                    <p>
+                        {{exp.fechaInicioExp}} - {{exp.fechaFinExp}}
                     </p>
          
             </div>

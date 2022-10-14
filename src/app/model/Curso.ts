@@ -1,10 +1,9 @@
-export interface Curso{
-
-    id: number;
-    img: string;
-    what: string;
-    where: string;
-    inicio: string;
-    fin: string;
-
+export interface Curso
+{
+    idCur: number;
+    imgCur: string;
+    dondeCur: string;
+    queCur: string;
+    fechaIniCur: string;
+    fechaFinCur: string;
 }

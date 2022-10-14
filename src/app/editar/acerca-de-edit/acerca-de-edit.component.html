@@ -1,0 +1,93 @@
+<div *ngIf="usuario">
+    <!-- Banner: -->
+    <div>
+        <img class="banner" [src]="usuario.banner" alt="">
+    </div>
+
+    <!-- About: -->
+    <div class="tag">
+
+            <img class="photo" [src]="usuario.fotoPerfil" alt="">
+
+
+        <div class="about">
+
+            <h1>{{usuario.nombre}}</h1>
+            <h5>{{usuario.titulo}}</h5>
+            <p>
+                {{usuario.descripcion}}
+            </p>
+
+        </div>   
+        
+        <div>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#EditModalAbout">
+                <h1><i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'white'}"></i></h1>
+            </button>            
+        </div>        
+        
+    </div>
+
+</div>
+
+
+<!-- Modal Editar -->
+<div class="modal fade" id="EditModalAbout" tabindex="-1" aria-labelledby="exampleModalLabelAbout" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabelAbout">Acerca de:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form 
+            class="add-form" 
+            (ngSubmit)="onModificarAbout()"            
+            >
+            <div class="form-control">
+                <label for="text">Nombres y Apellido</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="nombre"
+                    required
+                    >
+            </div>
+            <div class="form-control">
+                <label for="text">Titulo</label>
+                <input 
+                    class="form-control"
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="titulo"
+                    required
+                    >
+            </div>
+            <div class="form-control">
+                <label for="text">Descripcion Profesional</label>
+                <textarea 
+                    class="form-control"
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="descripcion"
+                    required
+                    ></textarea>
+            </div>
+
+            <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+
+        </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    </div>
+</div>
+
+

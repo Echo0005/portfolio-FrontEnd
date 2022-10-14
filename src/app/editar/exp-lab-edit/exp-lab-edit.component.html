@@ -1,0 +1,261 @@
+<!-- Experiencia Laboral -->
+<div class="tag fix space">
+    <h2>
+        Experiencia Laboral 
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalExpAdd">
+            <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+        </button>
+    </h2>
+    
+    <!-- Modal Add -->
+    <div class="modal fade" id="AddModalExpAdd" tabindex="-1" aria-labelledby="exampleModalLabelExp" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabelExp">Añadir Experiencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onCrear()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Link"
+                        [(ngModel)]="logoLinkExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Puesto</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="puestoExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Empresa</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="empresaExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control form-control-check">
+                    <label for="text">¿Es trabajo actual?</label>
+                    <input 
+                        type="checkbox" 
+                        name="text" 
+                        id="text" 
+                        [(ngModel)]="esTrabajoActualExp"
+                        required
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Inicio</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaInicioExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Finalizacion</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="fechaFinExp"
+                        required=""
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Update -->
+    <div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">Añadir Experiencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onUpdate()"            
+                >
+                <div class="form-control">
+                    <label for="text">Logo</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{expList[idExp].logoLinkExp}}"
+                        [(ngModel)]="logoLinkExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Puesto</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{expList[idExp].puestoExp}}"
+                        [(ngModel)]="puestoExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Empresa</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{expList[idExp].empresaExp}}"
+                        [(ngModel)]="empresaExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control form-control-check">
+                    <label for="text">¿Es trabajo actual?</label>
+                    <input 
+                        type="checkbox" 
+                        name="text" 
+                        id="text" 
+                        checked="{{expList[idExp].esTrabajoActualExp}}"
+                        [(ngModel)]="esTrabajoActualExp"
+                        required
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Inicio</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{expList[idExp].fechaInicioExp}}"
+                        [(ngModel)]="fechaInicioExp"
+                        required=""
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Fecha Finalizacion</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{expList[idExp].fechaFinExp}}"
+                        [(ngModel)]="fechaFinExp"
+                        required=""
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+    
+
+    <div class="border tag-exp">
+        <div>
+            <h5>Actualmente sin experiencia laboral.</h5>
+            <p>
+                Me tardé en terminar la secundaria (4 años repetidos, pero sin dejar de asistir) asunto que me permitió madurar internamente (fui quien más hablaba con los profesores de la secundaria, por ejemplo) a su vez desarrollar un mejor enfoque al estudio, terminando los últimos años con mejores notas y ánimos que en los primeros. Tras esta etapa concluida, 2019 fue un año complicado para el Empleo en el país y ya 2020, con el inicio de la pandemia, mayor complicación. En todo esto surgió el curso Argentina Programa, dando mis primeros pasos con la programación con la cual me siento muy cómodo y motivado a seguir emprendiendo.
+            </p>
+        </div>
+    </div>
+
+    <!--
+    <div class="border tag-exp">
+        <div>
+            <img class="img-empresa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png" alt="">
+        </div>        
+        <div>
+            <h5>
+                Puesto
+            </h5>
+            <div class="box">
+                <p>
+                    Empresa. Tipo-empleo.                    
+                </p>
+                <div>
+                    <p class="text-center">
+                        descripcion
+                    </p>
+                </div>
+                <p>
+                    esTrabAct
+                </p>
+                <p>
+                    finicio - ffin
+                </p>
+            </div>            
+        </div>
+    </div>
+    -->
+
+    <div *ngFor="let exp of expList">
+        <div class="border tag-exp">
+            <div>
+                <img class="img-empresa" [src]="exp.logoLinkExp" alt="">
+            </div>        
+            <div class="box">
+                
+                    <h4>
+                        {{exp.puestoExp}}
+                    </h4>
+                    <p>
+                        {{exp.empresaExp}}. {{exp.tipoEmpleoExp}}.                    
+                    </p>
+                    <p>
+                        {{exp.esTrabajoActualExp}}
+                    </p>
+                    <p>
+                        {{exp.fechaInicioExp}} - {{exp.fechaFinExp}}
+                    </p>
+         
+            </div>
+            <div>
+                <button class="">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteExp(exp.idExp)"></i>
+                </button>
+                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModal" (click)="updateById(exp.idExp)">
+                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                </button>
+            </div>
+        </div>
+
+        
+    </div>
+</div>

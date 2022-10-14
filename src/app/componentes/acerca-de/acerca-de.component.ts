@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/Usuario';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
@@ -9,13 +10,27 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class AcercaDeComponent implements OnInit {
 
-  miPorfolio: Usuario[] = [];
+  public usuario : Usuario | undefined;
 
   constructor(private datosPorfolio:PorfolioService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.getUsuario().subscribe(respuesta =>{
-      this.miPorfolio = respuesta});
+    this.getUser();
+  }
+
+  public getUser():void
+  {
+    this.datosPorfolio.getUsuario().subscribe
+    ({
+      next: (respuesta : Usuario) =>
+      {
+        this.usuario = respuesta;
+      },
+      error: (error : HttpErrorResponse) =>
+      {
+        console.log(error.message);
+      }
+    })
   }
 
 }

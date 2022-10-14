@@ -1,11 +1,9 @@
-export interface Educacion{
-
-    id: number;
-    img: string;
-    institucion: string;
-    estado: string;
-    titulo: string;
-    finicio: string;
-    ffin: string;
-
+export interface Educacion
+{
+    idEdu: number;
+    institucionEdu: string;
+    tituloEdu: string;
+    fechaEdu: string;
+    descripEdu: string;
+    imagenEdu: string;
 }

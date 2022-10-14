@@ -12,6 +12,16 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
+import { EditarComponent } from './guia/editar/editar.component';
+import { PorfolioComponent } from './guia/porfolio/porfolio.component';
+import { AcercaDeEditComponent } from './editar/acerca-de-edit/acerca-de-edit.component';
+import { FormEditComponent } from './editar/acerca-de-edit/form-edit/form-edit.component';
+import { FormsModule } from '@angular/forms';
+import { EducacionEditComponent } from './editar/educacion-edit/educacion-edit.component';
+import { ExpLabEditComponent } from './editar/exp-lab-edit/exp-lab-edit.component';
+import { ExpFormComponent } from './editar/exp-lab-edit/exp-form/exp-form.component';
+import { EduFormComponent } from './editar/educacion-edit/edu-form/edu-form.component';
+import { SkillsEditComponent } from './editar/skills-edit/skills-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +33,22 @@ import { LoginComponent } from './componentes/login/login.component';
     SkillsComponent,
     ProyectosComponent,
     FooterComponent,
-    LoginComponent    
+    LoginComponent,
+    EditarComponent,
+    PorfolioComponent,
+    AcercaDeEditComponent,
+    FormEditComponent,
+    EducacionEditComponent,
+    ExpLabEditComponent,
+    ExpFormComponent,
+    EduFormComponent,
+    SkillsEditComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

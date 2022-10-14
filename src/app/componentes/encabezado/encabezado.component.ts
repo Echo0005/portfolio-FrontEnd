@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Contacto } from 'src/app/model/Contacto';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
@@ -9,13 +10,27 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class EncabezadoComponent implements OnInit {
 
-  contactoDatos: Contacto [] = [];
+  public contacto: Contacto | undefined;
 
-  constructor( private service:PorfolioService ) { }
+  constructor( private datosPorfolio:PorfolioService ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.getContacto();
+  }
 
-    this.service.getContacto().subscribe( respuesta => { this.contactoDatos = respuesta; } );
-
+  public getContacto():void
+  {
+    this.datosPorfolio.getContacto().subscribe
+    ({
+      next: (respuesta : Contacto) =>
+      {
+        this.contacto = respuesta;
+      },
+      error: (error : HttpErrorResponse) =>
+      {
+        console.log(error.message);
+      }
+    })
   }
 }

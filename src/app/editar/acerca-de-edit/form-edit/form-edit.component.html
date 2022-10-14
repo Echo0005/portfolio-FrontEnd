@@ -1,0 +1,40 @@
+<div *ngIf="usuario">
+    <form 
+    class="add-form" 
+    (ngSubmit)="onSubmit()"
+    >
+    <div class="form-control">
+        <label for="text">Nombres</label>
+        <input 
+            type="text" 
+            name="text" 
+            id="text" 
+            [placeholder]="usuario.nombre"
+            [(ngModel)]="nombre"
+            >
+    </div>
+    <div class="form-control">
+        <label for="text">Titulo</label>
+        <input 
+            type="text" 
+            name="text" 
+            id="text" 
+            [placeholder]="usuario.titulo"
+            [(ngModel)]="titulo"
+            >
+    </div>
+    <div class="form-control">
+        <label for="text">Descr. Profesional</label>
+        <input 
+            type="text" 
+            name="text" 
+            id="text" 
+            placeholder="Text"
+            [(ngModel)]="descripcion"
+            >
+    </div>
+
+    <input type="submit" value="Guardar" class="btn btn-block">
+
+</form>
+</div>
