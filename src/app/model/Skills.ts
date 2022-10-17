@@ -1,7 +1,7 @@
 export interface Skills
 {
-    id: number;
-    nombre: string;
-    foto: string;
+    idSkill: number;
+    nombreSkill: string;
+    fotoSkill: string;
     porcentaje: string;
 }

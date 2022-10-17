@@ -2,7 +2,7 @@
 <div class="tag fix space">
     <h2>
         Experiencia Laboral 
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalExpAdd">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModalExpAdd">
             <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
         </button>
     </h2>
@@ -247,10 +247,10 @@
          
             </div>
             <div>
-                <button class="">
+                <button class="btn btn-primary">
                     <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteExp(exp.idExp)"></i>
                 </button>
-                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModal" (click)="updateById(exp.idExp)">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModal" (click)="updateById(exp.idExp)">
                     <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
                 </button>
             </div>

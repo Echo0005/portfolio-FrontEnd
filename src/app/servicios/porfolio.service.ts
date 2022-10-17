@@ -9,6 +9,7 @@ import { Contacto } from '../model/Contacto';
 import { ExperienciaLab } from '../model/ExperienciaLab';
 import { Educacion } from '../model/Educacion';
 import { Curso } from '../model/Curso';
+import { SkillSoft } from '../model/SkillSoft';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,10 +25,13 @@ export class PorfolioService {
 
   private apiUrlBase = environment.apiBaseURL;
 
+  private _subjectAbout$ = new Subject<void>();
   private _subjectExp$ = new Subject<void>();
   private _subjectEdu$ = new Subject<void>();
   private _subjectCur$ = new Subject<void>();
-  private _subjectAbout$ = new Subject<void>();
+  private _subjectSoftSkill$ = new Subject<void>();
+  private _subjectHardSkill$ = new Subject<void>();
+
 
   private ifLogin: boolean = false;
 
@@ -35,29 +39,41 @@ export class PorfolioService {
 
   constructor(private http:HttpClient) { }
 
-  get subjectAbout$(){
+  get subjectAbout$()
+  {
     return this._subjectAbout$;
   }
-  get subjectExp$(){
+  get subjectExp$()
+  {
     return this._subjectExp$;
   }
-  get subjectEdu$(){
+  get subjectEdu$()
+  {
     return this._subjectEdu$;
   }
-  get subjectCur$(){
+  get subjectCur$()
+  {
     return this._subjectCur$;
+  }
+  get subjectSoftSkill$()
+  {
+    return this._subjectSoftSkill$;
+  }
+  get subjectHardSkill$()
+  {
+    return this._subjectHardSkill$;
   }
 
   obtenerDatos():Observable<any>{
     return this.http.get('./assets/data/data.json');
   }
 
+
+
   //Ver. GET.
+
   getUsuario(): Observable<Usuario>{
-    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/1")
-      .pipe(
-        tap( () => { this._subjectAbout$.next(); } )
-      );
+    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/1");
   }
 
   getExperiencia(): Observable<ExperienciaLab[]>{
@@ -72,9 +88,14 @@ export class PorfolioService {
     return this.http.get(this.apiUrlBase + "/curso/all");
   }
 
-  getSkills(): Observable<Skills>
+  getSkillSoft(): Observable<SkillSoft[]>
   {
-    return this.http.get<Skills>(this.apiUrlBase + "/skills/all");
+    return this.http.get<SkillSoft[]>(this.apiUrlBase + "/skills/soft/all");
+  }
+
+  getSkills(): Observable<Skills[]>
+  {
+    return this.http.get<Skills[]>(this.apiUrlBase + "/skills/all");
   }
 
   getContacto(): Observable<Contacto>{
@@ -90,8 +111,11 @@ export class PorfolioService {
     return this.http.get<Login>( this.apiUrlBase + "/login/all" );
   }
 
+  ///
+
 
   //Agregar. POST.
+
   addEdu(edu: Educacion): Observable<Educacion>
   {
     const url = this.apiUrlBase + "/educacion/add";
@@ -110,12 +134,31 @@ export class PorfolioService {
       );
   }
 
-  addExp(exp: ExperienciaLab): Observable<any>{
+  addExp(exp: ExperienciaLab): Observable<any>
+  {
     return this.http.post<any>(this.apiUrlBase + "/experiencia/add", exp)
       .pipe(
         tap( () => { this._subjectExp$.next(); } )
       );
   }
+
+  public addSoftSkill( softSkill: SkillSoft ): Observable<SkillSoft>
+  {
+    return this.http.post<SkillSoft>(this.apiUrlBase + "/skills/soft/add", softSkill)
+      .pipe(
+        tap( () => { this._subjectSoftSkill$.next(); } )
+      );
+  }
+
+  public addHardSkill( hardSkill: Skills): Observable<Skills>
+  {
+    return this.http.post<Skills>(this.apiUrlBase + "/skills/add", hardSkill )
+      .pipe(
+        tap( () => { this._subjectHardSkill$.next(); } )
+      );
+  }
+
+  ///
 
 
   //Modificar. PUT.
@@ -152,6 +195,26 @@ export class PorfolioService {
       );
   }
 
+  putSoftSkill( softSkill: SkillSoft ): Observable<SkillSoft>
+  {
+    const url = this.apiUrlBase + "/skills/soft/update";
+    return this.http.put<SkillSoft>(url, softSkill)
+      .pipe(
+        tap( () => { this._subjectSoftSkill$.next(); } )
+      );
+  }
+
+  putHardSkill( hardSkill: Skills ): Observable<Skills>
+  {
+    const url = this.apiUrlBase + "/skills/update";
+    return this.http.put<Skills>(url, hardSkill)
+      .pipe(
+        tap( () => { this._subjectHardSkill$.next(); } )
+      );
+  }
+
+  ///
+
 
   //Eliminar. DELETE.
 
@@ -178,6 +241,26 @@ export class PorfolioService {
         tap( () => { this._subjectCur$.next(); } )
       );
   }
+
+  deleteSoftSkill( id: number ): Observable<void>
+  {
+    const url = `${this.apiUrlBase}/skills/soft/delete/${id}`;
+    return this.http.delete<void>(url)
+      .pipe(
+        tap( () => { this._subjectSoftSkill$.next(); } )
+      );
+  }
+
+  deleteHardSkill( id: number ): Observable<void>
+  {
+    const url = `${this.apiUrlBase}/skills/delete/${id}`;
+    return this.http.delete<void>(url)
+      .pipe(
+        tap( () => { this._subjectHardSkill$.next(); } )
+      );
+  }
+
+  ///
 
 
 }

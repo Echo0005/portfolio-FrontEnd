@@ -1,1 +1,205 @@
-<p>skills-edit works!</p>
+<div class="tag fix space">
+    <h2>Skills</h2>   
+    <div class="skill">
+        <div>
+            <h4>
+                Soft
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft">
+                    <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+                </button>
+            </h4>
+        
+        </div>
+        
+        <div *ngFor="let soft of skillSoftList">
+            <p>{{soft.nombre}}</p>
+            <div>
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="borrarSoftSkill(soft.idSoft)"></i>
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft" (click)="idUpdateSoft(soft.idSoft)">
+                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="flex skill">
+        <h4>
+            Hard
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalHardSoft">
+                <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+            </button>
+        </h4>
+
+        <div *ngFor="let hard of skillHardList" class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100" [style]="hard.porcentaje">
+                {{hard.nombreSkill}}
+            </div>
+            <!--
+                <div>
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="borrarHardSkill(hard.idSkill)"></i>
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModalHardSkill" (click)="idUpdateSoft(hard.idSkill)">
+                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                </button>
+            </div>
+            -->
+        </div>
+    </div>            
+</div>
+
+    <!-- Modal Add SoftSkill -->
+    <div class="modal fade" id="AddModalSkillSoft" tabindex="-1" aria-labelledby="ModalLabelAddSkillSoft" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabelAddSkillSoft">Añadir Soft Skill</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onModificarSoftSkill()"            
+                >
+                <div class="form-control">
+                    <label for="text">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="nombre"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Update Skill -->
+    <div class="modal fade" id="UpdateModalSoftSkill" tabindex="-1" aria-labelledby="ModalLabelUpdateSoftSkill" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabelUpdateSoftSkill">Modificar Soft Skill</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onModificarSoftSkill()"            
+                >
+                <div class="form-control">
+                    <label for="text">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{skillSoftList[idSoft].nombre}}"
+                        [(ngModel)]="nombre"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Add HardSkill -->
+    <div class="modal fade" id="AddModalHardSoft" tabindex="-1" aria-labelledby="ModalLabelAddSkillHard" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabelAddSkillHard">Añadir Hard Skill</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onCrearHardSkill()"            
+                >
+                <div class="form-control">
+                    <label for="text">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="nombreSkill"
+                        required
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Porcentaje</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Text"
+                        [(ngModel)]="porcentajeDado"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Update HardSkill -->
+    <div class="modal fade" id="UpdateModalHardSkill" tabindex="-1" aria-labelledby="ModalLabelUpdateSkillHard" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabelUpdateSkillHard">Modificar Hard Skill</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form 
+                class="add-form" 
+                (ngSubmit)="onModificarHardSkill()"            
+                >
+                <div class="form-control">
+                    <label for="text">Nombre</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="{{skillSoftList[idSoft].nombre}}"
+                        [(ngModel)]="nombre"
+                        required
+                        >
+                </div>
+    
+                <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+    
+            </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        </div>
+    </div>

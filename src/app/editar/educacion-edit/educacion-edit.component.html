@@ -317,15 +317,15 @@
                     <h4>{{educ.tituloEdu}}</h4>
                     <h5>{{educ.fechaEdu}}</h5>
                 </div>
-            </div>
-            <div>
-                <button class="">
-                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteEdu(educ.idEdu)"></i>
-                </button>
-                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalEducacion" (click)="updateIdEdu(educ.idEdu)">
-                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                </button>
-            </div>
+                <div>
+                    <button class="">
+                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteEdu(educ.idEdu)"></i>
+                    </button>
+                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalEducacion" (click)="updateIdEdu(educ.idEdu)">
+                        <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
+                    </button>
+                </div>
+            </div>            
         </div>
     </div>
     

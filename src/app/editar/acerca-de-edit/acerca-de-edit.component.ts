@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/model/Usuario';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
@@ -9,7 +9,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
   templateUrl: './acerca-de-edit.component.html',
   styleUrls: ['./acerca-de-edit.component.css']
 })
-export class AcercaDeEditComponent implements OnInit {
+export class AcercaDeEditComponent implements OnInit, OnDestroy {
 
   public usuario: Usuario | undefined;
 
@@ -22,7 +22,7 @@ export class AcercaDeEditComponent implements OnInit {
   titulo:string = "";
   descripcion:string = "";
 
-  constructor(private datosPorfolio:PorfolioService) { }
+  constructor( private datosPorfolio:PorfolioService ) { }
 
   ngOnInit(): void 
   {
@@ -30,23 +30,17 @@ export class AcercaDeEditComponent implements OnInit {
     this.suscription = this.datosPorfolio.subjectAbout$.subscribe( () => { this.getUsuario(); } )
   }
 
-  public getUsuario():void
+  ngOnDestroy(): void 
   {
-    this.datosPorfolio.getUsuario().subscribe
-    ({
-      next: (respuesta : Usuario) =>
-      {
-        this.usuario = respuesta;
-      },
-      error: (error : HttpErrorResponse) =>
-      {
-        console.log(error.message);
-      }
-    })
+    this.suscription.unsubscribe();
   }
 
-  putAcercaDe(usuario:Usuario){
-    this.datosPorfolio.putUsuario(usuario).subscribe();
+
+  
+
+  public getUsuario():void
+  {
+    this.datosPorfolio.getUsuario().subscribe( respuesta => { this.usuario = respuesta; } )
   }
 
   onModificarAbout(): void
@@ -54,9 +48,11 @@ export class AcercaDeEditComponent implements OnInit {
     const {id,banner,fotoPerfil,nombre,titulo,descripcion} = this
     const usuarioEdit = {id, banner, fotoPerfil, nombre, titulo, descripcion}
 
-    //this.acercaDeMod.emit(usuarioEdit);
-
     this.datosPorfolio.putUsuario(usuarioEdit).subscribe();
+
+    this.nombre = "";
+    this.titulo = "";
+    this.descripcion = "";
   }
 
 }
