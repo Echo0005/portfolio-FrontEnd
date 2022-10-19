@@ -11,7 +11,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class AcercaDeEditComponent implements OnInit, OnDestroy {
 
-  public usuario: Usuario | undefined;
+  public usuario: Usuario;
 
   suscription: Subscription = new Subscription;
 
@@ -27,6 +27,7 @@ export class AcercaDeEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void 
   {
     this.getUsuario();
+    this.onLoadUser();
     this.suscription = this.datosPorfolio.subjectAbout$.subscribe( () => { this.getUsuario(); } )
   }
 
@@ -41,6 +42,18 @@ export class AcercaDeEditComponent implements OnInit, OnDestroy {
   public getUsuario():void
   {
     this.datosPorfolio.getUsuario().subscribe( respuesta => { this.usuario = respuesta; } )
+  }
+
+  public onLoadUser():void
+  {
+    this.fotoPerfil = this.usuario.fotoPerfil;
+    console.log(this.usuario.fotoPerfil);
+    this.nombre = this.usuario.nombre;
+    console.log(this.usuario.nombre);
+    this.titulo = this.usuario.titulo;
+    console.log(this.usuario.titulo);
+    this.descripcion = this.usuario.descripcion;
+    console.log(this.usuario.descripcion);
   }
 
   onModificarAbout(): void

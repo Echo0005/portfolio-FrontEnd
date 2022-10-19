@@ -1,7 +1,6 @@
-export interface Login{
-
-    id: number;
-    email: string;
-    password: string;
-
+export interface Login
+{
+    idLog: number;
+    emailLog: string;
+    passwordLog: string;
 }

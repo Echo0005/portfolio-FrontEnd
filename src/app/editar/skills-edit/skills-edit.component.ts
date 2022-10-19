@@ -34,7 +34,7 @@ export class SkillsEditComponent implements OnInit, OnDestroy {
 
     // HardSkill
 
-    porcentajeDado: number = 0;
+    porcentajeDado: string = "";
 
     idSkill: number = 0;
     nombreSkill: string = "";
@@ -92,13 +92,12 @@ export class SkillsEditComponent implements OnInit, OnDestroy {
   public onCrearHardSkill(): void
   {
     this.idSkill = 0;
-    let value: string = "width:" + this.porcentajeDado.toString() + "%";
+    let value: string = "width:" + this.porcentajeDado + "%";
     this.porcentaje = value;
 
     const { idSkill, nombreSkill, fotoSkill, porcentaje } = this;
     const newHardSkill = { idSkill, nombreSkill, fotoSkill, porcentaje };
 
-    console.log(newHardSkill);
     this.datosPorfolio.addHardSkill(newHardSkill).subscribe();
   }
 
@@ -117,14 +116,15 @@ export class SkillsEditComponent implements OnInit, OnDestroy {
 
   public onModificarHardSkill(): void
   {
+    let value: string = "width:" + this.porcentajeDado + "%";
+    this.porcentaje = value;
     const { idSkill, nombreSkill, fotoSkill, porcentaje } = this;
     const updateHardSkill = { idSkill, nombreSkill, fotoSkill, porcentaje };
 
     this.datosPorfolio.putHardSkill(updateHardSkill).subscribe();
 
-    this.porcentajeDado = 0;
+    this.porcentajeDado = "";
     this.nombreSkill = "";
-    this.fotoSkill = "";
   }
 
   ///
@@ -133,13 +133,11 @@ export class SkillsEditComponent implements OnInit, OnDestroy {
   public idUpdateSoft(id: number): void
   {
     this.idSoft = id;
-    console.log(this.idSoft);
   }
 
   public idUpdateHard(id: number): void
   {
     this.idSkill = id;
-    alert(this.idSkill);
   }
 
   //

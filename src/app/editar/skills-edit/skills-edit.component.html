@@ -4,22 +4,25 @@
         <div>
             <h4>
                 Soft
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft">
                     <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
                 </button>
             </h4>
         
         </div>
         
-        <div *ngFor="let soft of skillSoftList">
-            <p>{{soft.nombre}}</p>
+        <div *ngFor="let soft of skillSoftList" class="">
+            <p>
+                {{soft.nombre}}
+                <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft" (click)="idUpdateSoft(soft.idSoft)">
+                    <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                </button>  
+                <button class="btn-sm btn-primary" (click)="borrarSoftSkill(soft.idSoft)">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}"></i>
+                </button>                          
+            </p>
             <div>
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="borrarSoftSkill(soft.idSoft)"></i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft" (click)="idUpdateSoft(soft.idSoft)">
-                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                </button>
+                
             </div>
         </div>
     </div>
@@ -28,26 +31,28 @@
     <div class="flex skill">
         <h4>
             Hard
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalHardSoft">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalHardSkill">
                 <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
             </button>
         </h4>
 
-        <div *ngFor="let hard of skillHardList" class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="50"
-                aria-valuemin="0" aria-valuemax="100" [style]="hard.porcentaje">
-                {{hard.nombreSkill}}
+        <div *ngFor="let hard of skillHardList">
+            <div class="container">
+                <h5>
+                    {{hard.nombreSkill}}
+                    <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalHardSkill" (click)="idUpdateHard(hard.idSkill)">
+                        <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                    </button>
+                    <button class="btn-sm btn-primary" (click)="borrarHardSkill(hard.idSkill)">
+                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}"></i>
+                    </button>               
+                </h5>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100" [style]="hard.porcentaje">
+                    </div>
+                </div>
             </div>
-            <!--
-                <div>
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="borrarHardSkill(hard.idSkill)"></i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModalHardSkill" (click)="idUpdateSoft(hard.idSkill)">
-                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                </button>
-            </div>
-            -->
         </div>
     </div>            
 </div>
@@ -106,7 +111,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{skillSoftList[idSoft].nombre}}"
+                        placeholder="Text"
                         [(ngModel)]="nombre"
                         required
                         >
@@ -124,7 +129,7 @@
 
 
     <!-- Modal Add HardSkill -->
-    <div class="modal fade" id="AddModalHardSoft" tabindex="-1" aria-labelledby="ModalLabelAddSkillHard" aria-hidden="true">
+    <div class="modal fade" id="AddModalHardSkill" tabindex="-1" aria-labelledby="ModalLabelAddSkillHard" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -188,8 +193,19 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{skillSoftList[idSoft].nombre}}"
-                        [(ngModel)]="nombre"
+                        placeholder="Text"
+                        [(ngModel)]="nombreSkill"
+                        required
+                        >
+                </div>
+                <div class="form-control">
+                    <label for="text">Porcentaje</label>
+                    <input 
+                        type="text" 
+                        name="text" 
+                        id="text" 
+                        placeholder="Number"
+                        [(ngModel)]="porcentajeDado"
                         required
                         >
                 </div>

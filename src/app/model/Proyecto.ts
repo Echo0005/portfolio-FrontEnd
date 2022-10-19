@@ -1,7 +1,6 @@
-export interface Proyecto{
-
-    id: number;
-    name: string;
-    link: string;
-
+export interface Proyecto
+{
+    idPro: number;
+    nombrePro: string;
+    linkPro: string;
 }

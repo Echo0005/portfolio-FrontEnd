@@ -1,0 +1,19 @@
+.tag-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: rgba(255, 255, 255, 0.616);
+    border-radius: 7px;
+}
+
+input {
+    padding-left: 1px;
+    text-align: center;
+}
+
+
+
+button {
+    margin-top: 10px;
+}

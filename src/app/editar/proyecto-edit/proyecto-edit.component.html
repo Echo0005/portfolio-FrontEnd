@@ -1,0 +1,115 @@
+<div class="tag fix space">
+    <h2>
+        Proyectos
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AddModalProyecto">
+            <i class="fa-solid fa-plus" [ngStyle]="{'color':'white'}"></i>
+        </button>    
+    </h2>
+    <div>
+        <ul>
+            <li *ngFor="let proyecto of proyectosList" type="none">
+                <div>
+                    <a class="me-1" [href]="proyecto.linkPro" target="_blank">{{proyecto.nombrePro}}</a>
+                    <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalProyecto" (click)="updateId(proyecto.idPro)">
+                        <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                    </button>
+                    <button class="btn-sm btn-primary">
+                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteProyecto(proyecto.idPro)"></i>
+                    </button> 
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal Educacion Add -->
+<div class="modal fade" id="AddModalProyecto" tabindex="-1" aria-labelledby="ModalLabelAddProyecto" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelAddProyecto">Añadir Proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form 
+            class="add-form" 
+            (ngSubmit)="onCrearProyecto()"            
+            >
+            <div class="form-control">
+                <label for="text">Nombre</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="nombrePro"
+                    required=""
+                    >
+            </div>
+            <div class="form-control">
+                <label for="text">Link</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Link"
+                    [(ngModel)]="linkPro"
+                    required=""
+                    >
+            </div>
+    
+            <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+
+        </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Modal Educacion Update -->
+<div class="modal fade" id="UpdateModalProyecto" tabindex="-1" aria-labelledby="ModalLabelEditProyecto" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelEditProyecto">Editar Proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form 
+            class="add-form" 
+            (ngSubmit)="onUpdateProyecto()"            
+            >
+            <div class="form-control">
+                <label for="text">Nombre</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="nombrePro"
+                    required=""
+                    >
+            </div>
+            <div class="form-control">
+                <label for="text">Link</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Text"
+                    [(ngModel)]="linkPro"
+                    required=""
+                    >
+            </div>
+
+            <input type="submit" value="Guardar" class="btn btn-block" data-bs-dismiss="modal">
+
+        </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    </div>
+</div>

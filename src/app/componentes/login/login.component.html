@@ -1,1 +1,15 @@
-<p>login works!</p>
+<app-encabezado></app-encabezado>
+<form class="tag-center p-3"(ngSubmit)="onLogin();">
+    <div class="">
+      <label for="InputEmail1" class="">Email address</label>
+      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" [(ngModel)]="email" name="email">
+    </div>
+    <div class="">
+      <label for="InputPassword1" class="">Password</label>
+      <input type="password" class="form-control" id="InputPassword1" [(ngModel)]="password" name="password">
+    </div>
+    <div class="text-center d-grid">
+        <button routerLink="/porfolio" class="btn btn-primary">Home</button>
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
+</form>

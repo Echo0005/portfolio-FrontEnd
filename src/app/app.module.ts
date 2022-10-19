@@ -22,6 +22,8 @@ import { ExpLabEditComponent } from './editar/exp-lab-edit/exp-lab-edit.componen
 import { ExpFormComponent } from './editar/exp-lab-edit/exp-form/exp-form.component';
 import { EduFormComponent } from './editar/educacion-edit/edu-form/edu-form.component';
 import { SkillsEditComponent } from './editar/skills-edit/skills-edit.component';
+import { ProyectoEditComponent } from './editar/proyecto-edit/proyecto-edit.component';
+import { EncabezadoEditComponent } from './editar/encabezado-edit/encabezado-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SkillsEditComponent } from './editar/skills-edit/skills-edit.component'
     ExpLabEditComponent,
     ExpFormComponent,
     EduFormComponent,
-    SkillsEditComponent    
+    SkillsEditComponent,
+    ProyectoEditComponent,
+    EncabezadoEditComponent    
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Contacto } from 'src/app/model/Contacto';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
-  selector: 'app-encabezado',
-  templateUrl: './encabezado.component.html',
-  styleUrls: ['./encabezado.component.css']
+  selector: 'app-encabezado-edit',
+  templateUrl: './encabezado-edit.component.html',
+  styleUrls: ['./encabezado-edit.component.css']
 })
-export class EncabezadoComponent implements OnInit {
+export class EncabezadoEditComponent implements OnInit {
 
   public contacto: Contacto | undefined;
 

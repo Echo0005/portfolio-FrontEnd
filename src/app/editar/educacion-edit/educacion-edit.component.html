@@ -307,25 +307,25 @@
                 </button>
             </h2>
         </div>
-        <div *ngFor="let educ of educacionList" class="border margin">
-            <div class="tag-edu">
-                <div>
+        <div *ngFor="let educ of educacionList" class="container border border-primary rounded rounded-3 margin tag-info">
+            <div class="row ps-3 pe-3 pt-3 flex-column">
+                <div class="col mb-2">
                     <img class="edu-logo" [src]="educ.imagenEdu" alt="">
                 </div>
-                <div>
-                    <h3>{{educ.institucionEdu}}</h3>
-                    <h4>{{educ.tituloEdu}}</h4>
-                    <h5>{{educ.fechaEdu}}</h5>
-                </div>
-                <div>
-                    <button class="">
-                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteEdu(educ.idEdu)"></i>
-                    </button>
-                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalEducacion" (click)="updateIdEdu(educ.idEdu)">
-                        <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                    </button>
-                </div>
-            </div>            
+                <div class="col">
+                    <h4>{{educ.institucionEdu}}</h4>
+                    <h5>{{educ.tituloEdu}}</h5>
+                    <h6>{{educ.fechaEdu}}</h6>
+                </div>                
+            </div>        
+            <div class="col pb-3">
+                <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalEducacion" (click)="updateIdEdu(educ.idEdu)">
+                    <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                </button>
+                <button class="btn-sm btn-primary">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteEdu(educ.idEdu)"></i>
+                </button>                
+            </div>    
         </div>
     </div>
     
@@ -340,25 +340,25 @@
             </h3>
         </div>
     
-        <div *ngFor="let curso of cursosList" class="margin">
-            <div class="border tag-edu">
-                <div>
+        <div *ngFor="let curso of cursosList" class="container margin border border-primary rounded rounded-3 tag-info">
+            <div class="row ps-3 pe-3 pt-3">
+                <div class="col">
                     <img class="edu-logo" [src]="curso.imgCur" alt="">
                 </div>
-                <div>
-                    <h3>{{curso.queCur}}</h3>
-                    <h4>{{curso.dondeCur}}</h4>
-                    <h5>{{curso.fechaIniCur}} - {{curso.fechaFinCur}}</h5>
-                </div>
-                <div>
-                    <button class="">
-                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteCur(curso.idCur)"></i>
-                    </button>
-                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#UpdateModalCurso" (click)="updateIdCur(curso.idCur)">
-                        <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                    </button>
-                </div>
+                <div class="col">
+                    <h4>{{curso.queCur}}</h4>
+                    <h5>{{curso.dondeCur}}</h5>
+                    <h6>{{curso.fechaIniCur}} - {{curso.fechaFinCur}}</h6>
+                </div>                
             </div>  
+            <div class="col pb-3">
+                <button class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalCurso" (click)="updateIdCur(curso.idCur)">
+                    <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                </button>
+                <button class="btn-sm btn-primary">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteCur(curso.idCur)"></i>
+                </button>                    
+            </div>
         </div>
     </div>
 

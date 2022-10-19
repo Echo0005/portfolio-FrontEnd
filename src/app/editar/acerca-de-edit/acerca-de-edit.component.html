@@ -6,29 +6,33 @@
 
     <!-- About: -->
     <div class="about">
-
-        <div>
-            <img class="photo" [src]="usuario.fotoPerfil" alt="">
-        </div>
-
-        <div class="text-center">
-
-            <h1>{{usuario.nombre}}</h1>
-            <h5>{{usuario.titulo}}</h5>
-            <p>
-                {{usuario.descripcion}}
-            </p>
-
-        </div>   
-        
-        <div>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#EditModalAbout">
-                <h1><i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'white'}"></i></h1>
-            </button>            
-        </div>        
-        
+        <div class="container">
+            <div class="m-3 d-flex justify-content-center align-items-center">
+                <div class="col">
+                    <div class="avatar-edit">
+                        <img class="photo" [src]="usuario.fotoPerfil" alt="">   
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#EditModalAbout">
+                            <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                        </button>
+                    </div>                    
+                </div>
+       
+                <div class="text-center">
+                   <h1>{{usuario.nombre}}</h1>
+                   <h5>{{usuario.titulo}}</h5>
+                   <p>
+                       {{usuario.descripcion}}
+                   </p>
+                </div>
+                   
+                <div class="">
+                   <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#EditModalAbout">
+                       <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                   </button>            
+                </div>  
+           </div>  
+        </div> 
     </div>
-
 </div>
 
 

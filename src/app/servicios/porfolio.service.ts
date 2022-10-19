@@ -10,6 +10,7 @@ import { ExperienciaLab } from '../model/ExperienciaLab';
 import { Educacion } from '../model/Educacion';
 import { Curso } from '../model/Curso';
 import { SkillSoft } from '../model/SkillSoft';
+import { Proyecto } from '../model/Proyecto';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -31,6 +32,7 @@ export class PorfolioService {
   private _subjectCur$ = new Subject<void>();
   private _subjectSoftSkill$ = new Subject<void>();
   private _subjectHardSkill$ = new Subject<void>();
+  private _subjectProyecto$ = new Subject<void>();
 
 
   private ifLogin: boolean = false;
@@ -63,9 +65,9 @@ export class PorfolioService {
   {
     return this._subjectHardSkill$;
   }
-
-  obtenerDatos():Observable<any>{
-    return this.http.get('./assets/data/data.json');
+  get subjectProyecto$()
+  {
+    return this._subjectProyecto$;
   }
 
 
@@ -104,11 +106,6 @@ export class PorfolioService {
 
   getProyectos(): Observable<any> {
     return this.http.get( this.apiUrlBase + "/proyecto/all" );
-  }
-
-  getLogin(): Observable<Login>
-  {
-    return this.http.get<Login>( this.apiUrlBase + "/login/all" );
   }
 
   ///
@@ -155,6 +152,14 @@ export class PorfolioService {
     return this.http.post<Skills>(this.apiUrlBase + "/skills/add", hardSkill )
       .pipe(
         tap( () => { this._subjectHardSkill$.next(); } )
+      );
+  }
+
+  public addProyecto( proyecto: Proyecto ): Observable<Proyecto>
+  {
+    return this.http.post<Proyecto>(this.apiUrlBase + "/proyecto/add", proyecto)
+      .pipe(
+        tap( () => { this._subjectProyecto$.next() } )
       );
   }
 
@@ -213,6 +218,15 @@ export class PorfolioService {
       );
   }
 
+  putProyecto( proyecto: Proyecto ): Observable<Proyecto>
+  {
+    const url = this.apiUrlBase + "/proyecto/update";
+    return this.http.put<Proyecto>(url, proyecto)
+      .pipe(
+          tap( () => { this._subjectProyecto$.next() } )
+        );
+  }
+
   ///
 
 
@@ -258,6 +272,16 @@ export class PorfolioService {
       .pipe(
         tap( () => { this._subjectHardSkill$.next(); } )
       );
+  }
+
+  deleteProyecto( id: number ): Observable<void>
+  {
+    const url = `${this.apiUrlBase}/proyecto/delete/${id}`;
+    return this.http.delete<void>(url)
+      .pipe(
+        tap( () => { this._subjectProyecto$.next(); } )
+      );
+
   }
 
   ///

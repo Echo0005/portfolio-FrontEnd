@@ -115,7 +115,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{expList[idExp].logoLinkExp}}"
+                        placeholder="Link"
                         [(ngModel)]="logoLinkExp"
                         required=""
                         >
@@ -126,7 +126,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{expList[idExp].puestoExp}}"
+                        placeholder="Text"
                         [(ngModel)]="puestoExp"
                         required=""
                         >
@@ -137,7 +137,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{expList[idExp].empresaExp}}"
+                        placeholder="Text"
                         [(ngModel)]="empresaExp"
                         required=""
                         >
@@ -147,8 +147,7 @@
                     <input 
                         type="checkbox" 
                         name="text" 
-                        id="text" 
-                        checked="{{expList[idExp].esTrabajoActualExp}}"
+                        id="text"                         
                         [(ngModel)]="esTrabajoActualExp"
                         required
                         >
@@ -159,7 +158,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{expList[idExp].fechaInicioExp}}"
+                        placeholder="Text"
                         [(ngModel)]="fechaInicioExp"
                         required=""
                         >
@@ -170,7 +169,7 @@
                         type="text" 
                         name="text" 
                         id="text" 
-                        placeholder="{{expList[idExp].fechaFinExp}}"
+                        placeholder="Text"
                         [(ngModel)]="fechaFinExp"
                         required=""
                         >
@@ -196,66 +195,35 @@
         </div>
     </div>
 
-    <!--
-    <div class="border tag-exp">
-        <div>
-            <img class="img-empresa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png" alt="">
-        </div>        
-        <div>
-            <h5>
-                Puesto
-            </h5>
-            <div class="box">
-                <p>
-                    Empresa. Tipo-empleo.                    
-                </p>
-                <div>
-                    <p class="text-center">
-                        descripcion
-                    </p>
-                </div>
-                <p>
-                    esTrabAct
-                </p>
-                <p>
-                    finicio - ffin
-                </p>
-            </div>            
-        </div>
-    </div>
-    -->
-
-    <div *ngFor="let exp of expList">
-        <div class="border tag-exp">
-            <div>
+    <div *ngFor="let exp of expList" class="container border border-primary rounded rounded-3 tag-info">
+        <div class="row ps-3 pe-3 pt-3 align-items-center">
+            <div class="col">
                 <img class="img-empresa" [src]="exp.logoLinkExp" alt="">
-            </div>        
-            <div class="box">
-                
-                    <h4>
-                        {{exp.puestoExp}}
-                    </h4>
-                    <p>
-                        {{exp.empresaExp}}. {{exp.tipoEmpleoExp}}.                    
-                    </p>
-                    <p>
-                        {{exp.esTrabajoActualExp}}
-                    </p>
-                    <p>
-                        {{exp.fechaInicioExp}} - {{exp.fechaFinExp}}
-                    </p>
-         
             </div>
-            <div>
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteExp(exp.idExp)"></i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModal" (click)="updateById(exp.idExp)">
-                    <i class="fa-solid fa-square-pen" [ngStyle]="{'color' : 'blue'}"></i>
-                </button>
+            <div class="col">
+                    
+                <h5>
+                    {{exp.puestoExp}}
+                </h5>
+                <p>
+                    {{exp.empresaExp}}                   
+                </p>
+                <p>
+                    {{exp.fechaInicioExp}}
+                </p>
+                <p>
+                    {{exp.fechaFinExp}}
+                </p>
+             
+                </div>                
             </div>
-        </div>
-
-        
-    </div>
+            <div class="col pb-3">
+                <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModal" (click)="updateById(exp.idExp)">
+                    <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
+                </button>
+                <button type="button" class="btn-sm btn-primary" (click)="deleteExp(exp.idExp)">
+                    <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}"></i>
+                </button>                
+            </div>
+    </div> 
 </div>
