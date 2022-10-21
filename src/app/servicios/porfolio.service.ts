@@ -75,7 +75,7 @@ export class PorfolioService {
   //Ver. GET.
 
   getUsuario(): Observable<Usuario>{
-    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/1")
+    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/3")
   }
 
   getUsuarios(): Observable<Usuario[]>{

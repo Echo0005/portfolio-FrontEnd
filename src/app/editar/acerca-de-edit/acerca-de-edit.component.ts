@@ -13,9 +13,9 @@ export class AcercaDeEditComponent implements OnInit, OnDestroy {
 
   suscription: Subscription = new Subscription;
 
-  usuario : Usuario = new Usuario (1, "", "", "", "", "");
+  usuario : Usuario = new Usuario (3, "", "", "", "", "");
 
-  id: number = 1;
+  id: number = 3;
   banner:string = "https://i.imgur.com/8y2Hwm9.jpg";
   fotoPerfil:string = "";
   nombre:string = "";

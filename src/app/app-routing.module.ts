@@ -5,6 +5,7 @@ import { EditarComponent } from './guia/editar/editar.component';
 import { PorfolioComponent } from './guia/porfolio/porfolio.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: "porfolio", pathMatch: "full"},
   {path: "login", component: LoginComponent },
   {path: "porfolio", component: PorfolioComponent},
   {path: "editar", component: EditarComponent}
