@@ -1,21 +1,21 @@
-<div *ngIf="usuario">
+<div>
     <!-- Banner: -->
     <div>
-        <img class="banner" [src]="usuario.banner" alt="">
+        <img class="banner" [src]="usuario[0].banner" alt="">
     </div>
 
     <!-- About: -->
     <div class="about px-md-5">
 
-            <img class="photo" [src]="usuario.fotoPerfil" alt="">
+            <img class="photo rounded" [src]="usuario[0].fotoPerfil" alt="">
 
 
         <div class="text-center">
 
-            <h1>{{usuario.nombre}}</h1>
-            <h5>{{usuario.titulo}}</h5>
+            <h1>{{usuario[0].nombre}}</h1>
+            <h5>{{usuario[0].titulo}}</h5>
             <p>
-                {{usuario.descripcion}}
+                {{usuario[0].descripcion}}
             </p>
 
         </div>          

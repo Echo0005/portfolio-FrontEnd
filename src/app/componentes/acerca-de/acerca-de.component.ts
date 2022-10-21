@@ -10,7 +10,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class AcercaDeComponent implements OnInit {
 
-  public usuario : Usuario | undefined;
+  public usuario : Usuario[] = [];
 
   constructor(private datosPorfolio:PorfolioService) { }
 
@@ -20,17 +20,7 @@ export class AcercaDeComponent implements OnInit {
 
   public getUser():void
   {
-    this.datosPorfolio.getUsuario().subscribe
-    ({
-      next: (respuesta : Usuario) =>
-      {
-        this.usuario = respuesta;
-      },
-      error: (error : HttpErrorResponse) =>
-      {
-        console.log(error.message);
-      }
-    })
+    this.datosPorfolio.getUsuarios().subscribe( respuesta => { this.usuario = respuesta; })
   }
 
 }

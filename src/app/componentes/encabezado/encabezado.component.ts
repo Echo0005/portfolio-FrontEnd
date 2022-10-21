@@ -1,7 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Contacto } from 'src/app/model/Contacto';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
@@ -12,7 +9,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class EncabezadoComponent implements OnInit {
 
-  public contacto: Contacto | undefined;
+  public contacto: Contacto[] = [];
 
   constructor( private datosPorfolio:PorfolioService ) { }
 
@@ -23,17 +20,7 @@ export class EncabezadoComponent implements OnInit {
 
   public getContacto():void
   {
-    this.datosPorfolio.getContacto().subscribe
-    ({
-      next: (respuesta : Contacto) =>
-      {
-        this.contacto = respuesta;
-      },
-      error: (error : HttpErrorResponse) =>
-      {
-        console.log(error.message);
-      }
-    })
+    this.datosPorfolio.getContacto().subscribe( respuesta => { this.contacto = respuesta; } )
   }
 
 }

@@ -75,7 +75,11 @@ export class PorfolioService {
   //Ver. GET.
 
   getUsuario(): Observable<Usuario>{
-    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/1");
+    return this.http.get<Usuario>(this.apiUrlBase + "/usuario/id/1")
+  }
+
+  getUsuarios(): Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.apiUrlBase + "/usuario/all");
   }
 
   getExperiencia(): Observable<ExperienciaLab[]>{
@@ -100,8 +104,8 @@ export class PorfolioService {
     return this.http.get<Skills[]>(this.apiUrlBase + "/skills/all");
   }
 
-  getContacto(): Observable<Contacto>{
-    return this.http.get<Contacto>(this.apiUrlBase + "/contacto/all");
+  getContacto(): Observable<Contacto[]>{
+    return this.http.get<Contacto[]>(this.apiUrlBase + "/contacto/all");
   }
 
   getProyectos(): Observable<any> {
@@ -170,7 +174,10 @@ export class PorfolioService {
 
   putUsuario(usuario: Usuario): Observable<Usuario>{
     const url = this.apiUrlBase + "/usuario/update";
-    return this.http.put<Usuario>(url, usuario);
+    return this.http.put<Usuario>(url, usuario)
+      .pipe(
+        tap( () => { this._subjectAbout$.next(); } )
+      );
   }
 
   putExperiencia(experiencia: ExperienciaLab): Observable<ExperienciaLab>

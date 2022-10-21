@@ -1,4 +1,4 @@
-<div *ngIf="usuario">
+<div>
     <!-- Banner: -->
     <div>
         <img class="banner" [src]="usuario.banner" alt="">
@@ -10,8 +10,8 @@
             <div class="m-3 d-flex justify-content-center align-items-center">
                 <div class="col">
                     <div class="avatar-edit">
-                        <img class="photo" [src]="usuario.fotoPerfil" alt="">   
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#EditModalAbout">
+                        <img class="photo rounded-circle" [src]="usuario.fotoPerfil" alt="">   
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#EditModalAbout" disabled>
                             <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
                         </button>
                     </div>                    
@@ -37,6 +37,7 @@
 
 
 <!-- Modal Editar -->
+
 <div class="modal fade" id="EditModalAbout" tabindex="-1" aria-labelledby="exampleModalLabelAbout" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -49,6 +50,18 @@
             class="add-form" 
             (ngSubmit)="onModificarAbout()"            
             >
+            <div class="form-control">
+                <label for="text">Foto Perfil</label>
+                <input 
+                    type="text" 
+                    name="text" 
+                    id="text" 
+                    placeholder="Link"
+                    value="Test"
+                    [(ngModel)]="fotoPerfil"
+                    required
+                    >
+            </div>
             <div class="form-control">
                 <label for="text">Nombres y Apellido</label>
                 <input 

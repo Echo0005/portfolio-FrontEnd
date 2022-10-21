@@ -10,7 +10,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class EncabezadoEditComponent implements OnInit {
 
-  public contacto: Contacto | undefined;
+  public contacto: Contacto[] = [];
 
   constructor( private datosPorfolio:PorfolioService ) { }
 
@@ -21,17 +21,7 @@ export class EncabezadoEditComponent implements OnInit {
 
   public getContacto():void
   {
-    this.datosPorfolio.getContacto().subscribe
-    ({
-      next: (respuesta : Contacto) =>
-      {
-        this.contacto = respuesta;
-      },
-      error: (error : HttpErrorResponse) =>
-      {
-        console.log(error.message);
-      }
-    })
+    this.datosPorfolio.getContacto().subscribe( respuesta => { this.contacto = respuesta; })
   }
 
 }
