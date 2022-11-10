@@ -95,6 +95,11 @@ export class EducacionEditComponent implements OnInit, OnDestroy {
     this.datosPorfolio.putEducacion(eduNew).subscribe();
 
     this.idEdu = 0;
+    this.institucionEdu = "";
+    this.tituloEdu = "";
+    this.fechaEdu = "";
+    this.descripEdu = "";
+    this.imagenEdu = "";
   }
   onUpdateCur(): void
   {
@@ -104,6 +109,11 @@ export class EducacionEditComponent implements OnInit, OnDestroy {
     this.datosPorfolio.putCurso(curNew).subscribe();
 
     this.idCur = 0;
+    this.imgCur = "";
+    this.dondeCur = "";
+    this.queCur = "";
+    this.fechaIniCur = "";
+    this.fechaFinCur = "";
   }
 
 

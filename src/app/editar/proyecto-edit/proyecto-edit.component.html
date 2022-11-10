@@ -13,8 +13,8 @@
                     <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalProyecto" (click)="updateId(proyecto.idPro)">
                         <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
                     </button>
-                    <button class="btn-sm btn-primary">
-                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}" (click)="deleteProyecto(proyecto.idPro)"></i>
+                    <button class="btn-sm btn-primary" (click)="deleteProyecto(proyecto.idPro)">
+                        <i class="fa-solid fa-xmark" [ngStyle]="{'color' : 'red'}"></i>
                     </button> 
                 </div>
             </li>

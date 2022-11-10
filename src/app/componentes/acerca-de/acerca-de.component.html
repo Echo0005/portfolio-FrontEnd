@@ -1,21 +1,21 @@
 <div>
     <!-- Banner: -->
     <div>
-        <img class="banner" [src]="usuario[0].banner" alt="">
+        <img class="banner" [src]="usuario[0]?.banner" alt="banner">
     </div>
 
     <!-- About: -->
-    <div class="about px-md-5">
+    <div class="about p-md-5">
 
-            <img class="photo rounded" [src]="usuario[0].fotoPerfil" alt="">
+            <img class="photo rounded-circle" [src]="usuario[0]?.fotoPerfil" alt="foto del usuario">
 
 
         <div class="text-center">
 
-            <h1>{{usuario[0].nombre}}</h1>
-            <h5>{{usuario[0].titulo}}</h5>
+            <h1>{{usuario[0]?.nombre}}</h1>
+            <h5>{{usuario[0]?.titulo}}</h5>
             <p>
-                {{usuario[0].descripcion}}
+                {{usuario[0]?.descripcion}}
             </p>
 
         </div>          

@@ -1,16 +1,16 @@
-export interface Contacto{
+export class Contacto{
 
     idCon?: number;
     githubLinkCon: string;
     linkedinLinkCon: string;
 
-    /*
-    constructor( id:number, github:string, linkedin:string )
+    
+    constructor( idCon:number, githubLinkCon:string, linkedinLinkCon:string )
     {
-        this.id = id;
-        this.github = github;
-        this.linkedin = linkedin;
+        this.idCon = idCon;
+        this.githubLinkCon = githubLinkCon;
+        this.linkedinLinkCon = linkedinLinkCon;
     }
-    */
+    
 
 }

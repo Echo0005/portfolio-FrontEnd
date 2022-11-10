@@ -14,7 +14,7 @@
         <div *ngFor="let soft of skillSoftList" class="">
             <p>
                 {{soft.nombre}}
-                <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#AddModalSkillSoft" (click)="idUpdateSoft(soft.idSoft)">
+                <button type="button" class="btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#UpdateModalSoftSkill" (click)="idUpdateSoft(soft.idSoft)">
                     <i class="fa-solid fa-pencil" [ngStyle]="{'color' : 'white'}"></i>
                 </button>  
                 <button class="btn-sm btn-primary" (click)="borrarSoftSkill(soft.idSoft)">
@@ -68,7 +68,7 @@
             <div class="modal-body">
                 <form 
                 class="add-form" 
-                (ngSubmit)="onModificarSoftSkill()"            
+                (ngSubmit)="onCrearSoftSkill()"            
                 >
                 <div class="form-control">
                     <label for="text">Nombre</label>
@@ -97,7 +97,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="ModalLabelUpdateSoftSkill">Modificar Soft Skill</h5>
+            <h5 class="modal-title" id="ModalLabelUpdateSoftSkill">Editar Soft Skill</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -179,7 +179,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="ModalLabelUpdateSkillHard">Modificar Hard Skill</h5>
+            <h5 class="modal-title" id="ModalLabelUpdateSkillHard">Editar Hard Skill</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

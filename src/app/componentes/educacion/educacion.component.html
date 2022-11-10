@@ -5,7 +5,7 @@
     <div *ngFor="let educ of educacionList" class="container border border-primary rounded rounded-3 margin tag-info">
         <div class="row p-3 flex-column">
             <div class="col mb-2">
-                <img class="edu-logo" [src]="educ.imagenEdu" alt="">
+                <img class="edu-logo" [src]="educ.imagenEdu" alt="logo de la institucion">
             </div>
             <div class="col">
                 <h3>{{educ.institucionEdu}}</h3>
@@ -19,7 +19,7 @@
     <div *ngFor="let curso of cursosList" class="container margin border border-primary rounded rounded-3 tag-info">
         <div class="row p-3 flex-column">
             <div class="col">
-                <img class="edu-logo" [src]="curso.imgCur" alt="">
+                <img class="edu-logo" [src]="curso.imgCur" alt="logo referente al curso">
             </div>
             <div class="col">
                 <h3>{{curso.queCur}}</h3>

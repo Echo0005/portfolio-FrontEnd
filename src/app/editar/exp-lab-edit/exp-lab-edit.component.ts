@@ -49,6 +49,12 @@ export class ExpLabEditComponent implements OnInit, OnDestroy {
     const expNew = {idExp,logoLinkExp, empresaExp, tipoEmpleoExp, puestoExp, esTrabajoActualExp, fechaInicioExp, fechaFinExp}
 
     this.datosPorfolio.addExp(expNew).subscribe();
+
+    this.logoLinkExp = "";
+    this.empresaExp = "";
+    this.puestoExp = "";
+    this.fechaInicioExp = "";
+    this.fechaFinExp = "";
   }
 
   public onUpdate(): void
@@ -58,6 +64,11 @@ export class ExpLabEditComponent implements OnInit, OnDestroy {
 
     this.datosPorfolio.putExperiencia(expUpdate).subscribe();
     this.idExp = 0;
+    this.logoLinkExp = "";
+    this.empresaExp = "";
+    this.puestoExp = "";
+    this.fechaInicioExp = "";
+    this.fechaFinExp = "";
   }
 
   public updateById(id: any): void

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit
 
   public getLogin()
   {
-    this.loginService.getLogin().subscribe( respuesta => { this.emailDB = respuesta.emailLog; this.passwordDb = respuesta.passwordLog; console.log(respuesta); } )
+    this.loginService.getLogin().subscribe( respuesta => { this.emailDB = respuesta.emailLog; this.passwordDb = respuesta.passwordLog; } )
   }
 
   public onLogin()

@@ -1,11 +1,11 @@
 <header>
     <!-- Nav: -->
     <div class="nav">
-        <img class="ap-logo" src="https://i.imgur.com/OxKKUfp.png" alt="">
+        <img class="ap-logo" src="https://i.imgur.com/OxKKUfp.png" alt="logo de argentina programa">
         <div *ngIf="contacto">
             <nav>
-                <a [href]="contacto[0].linkedinLinkCon" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-                <a [href]="contacto[0].githubLinkCon" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>   
+                <a [href]="contacto[0]?.linkedinLinkCon" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                <a [href]="contacto[0]?.githubLinkCon" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>   
       
                 <a routerLink="/porfolio">Logout</a>
             </nav>
